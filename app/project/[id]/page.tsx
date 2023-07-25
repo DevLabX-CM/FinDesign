@@ -32,7 +32,7 @@ return (
             <div className="flex-1 flex items-start gap-5 w-full max-xs:flex-col">
                 <Link href={renderLink()}>
                     <Image
-                        src={projectDetails?.createdBy?.avatarUrl}
+                        src={projectDetails?.createdBy?.avatarUrl?? '/close.svg'}
                         width={50}
                         height={50}
                         alt="profile"
@@ -49,7 +49,7 @@ return (
                             {projectDetails?.createdBy?.name}
                         </Link>
                         <Image src="/dot.svg" width={4} height={4} alt="dot" />
-                        <Link href={`/?category=${projectDetails.category}`} className="text-primary-purple font-semibold"> 
+                        <Link href={`/?category=${projectDetails?.category}`} className="text-primary-purple font-semibold"> 
                             {projectDetails?.category}
                         </Link>
                     </div>
@@ -79,11 +79,11 @@ return (
             </p>
 
             <div className="flex flex-wrap mt-5 gap-5">
-                <Link href={projectDetails?.githubUrl} target="_blank" rel="noreferrer" className="flexCenter gap-2 tex-sm font-medium text-primary-purple">
+                <Link href={projectDetails?.githubUrl ?? ''} target="_blank" rel="noreferrer" className="flexCenter gap-2 tex-sm font-medium text-primary-purple">
                     🖥 <span className="underline">Github</span> 
                 </Link>
                 <Image src="/dot.svg" width={4} height={4} alt="dot" />
-                <Link href={projectDetails?.liveSiteUrl} target="_blank" rel="noreferrer" className="flexCenter gap-2 tex-sm font-medium text-primary-purple">
+                <Link href={projectDetails?.liveSiteUrl ?? ''} target="_blank" rel="noreferrer" className="flexCenter gap-2 tex-sm font-medium text-primary-purple">
                     🚀 <span className="underline">Live Site</span> 
                 </Link>
             </div>
@@ -93,7 +93,7 @@ return (
             <span className="w-full h-0.5 bg-light-white-200" />
             <Link href={renderLink()} className="min-w-[82px] h-[82px]">
                 <Image
-                    src={projectDetails?.createdBy?.avatarUrl}
+                    src={projectDetails?.createdBy?.avatarUrl ?? '/pencile.svg'}
                     className="rounded-full"
                     width={82}
                     height={82}
@@ -103,7 +103,7 @@ return (
             <span className="w-full h-0.5 bg-light-white-200" />
         </section>
 
-        <RelatedProjects userId={projectDetails?.createdBy?.id} projectId={projectDetails?.id} />
+        <RelatedProjects userId={projectDetails?.createdBy?.id ?? '12'} projectId={projectDetails?.id ?? '12'} />
     </Modal>
 )
 }
