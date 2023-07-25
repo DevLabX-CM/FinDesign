@@ -10,7 +10,7 @@ import CustomMenu from "./CustomMenu";
 import { categoryFilters } from "@/constant";
 import { useRouter } from "next/navigation";
 import Button from "./Button";
-import { createNewProject, fetchToken } from "@/lib/action";
+import { createNewProject, fetchToken, updateProject } from "@/lib/action";
 
 type Props = {
   type: string;
@@ -46,7 +46,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
       }
 
       if (type === "edit") {
-        // await updateProject(form, project?.id as string, token)
+        await updateProject(form, project?.id as string, token)
 
         router.push("/");
       }
