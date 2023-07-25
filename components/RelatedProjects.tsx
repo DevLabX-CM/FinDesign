@@ -5,8 +5,8 @@ import { ProjectInterface, UserProfile } from '@/common.type'
 import Image from 'next/image'
 
 type Props = {
-    userId: string|undefined
-    projectId: string|undefined
+    userId: string
+    projectId: string
 }
 
 const RelatedProjects = async ({ userId, projectId }: Props) => {
